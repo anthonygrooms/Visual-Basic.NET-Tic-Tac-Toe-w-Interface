@@ -1,12 +1,15 @@
 ﻿Public Class Gameboard
 
+    'Intialize data
     Dim player As String = "X"
     Dim Turn As String = "1"
 
+    'Show whose turn it is
     Private Sub Gameboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LblPlayerTurn.Text = player
     End Sub
 
+    'Change the text of the button if clicked on
     Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles Btn1.Click
         Btn1.Text = player
         Btn1.Enabled = False
@@ -61,6 +64,7 @@
         SwapTurns()
     End Sub
 
+    'Swap turns after player clicks a button
     Private Function SwapTurns()
         Checker()
         If Turn = 1 Then
@@ -75,6 +79,7 @@
         Return "Swapped Turns"
     End Function
 
+    'Check if someone won the game
     Private Function Checker()
 
         Iftied()
@@ -180,6 +185,7 @@
         Return "Checked"
     End Function
 
+    'Pause functionality of tic tac toe board
     Private Function Pause()
         Btn1.Enabled = False
         Btn2.Enabled = False
@@ -193,11 +199,13 @@
         Return "Game is paused"
     End Function
 
+    'Refresh the data for player turn display
     Private Function Refresher()
         LblPlayerTurn.Text = player
         Return "Updated Values"
     End Function
 
+    'Check if there is a tie
     Private Function Iftied()
         Dim count As Integer = 0
 
@@ -213,6 +221,7 @@
         Return "Tied"
     End Function
 
+    'Reset all data
     Public Function Reset()
         Btn1.Enabled = True
         Btn2.Enabled = True
@@ -241,6 +250,7 @@
         Return "Game Reset"
     End Function
 
+    'Link the reset function to the reset button
     Private Sub BtnReset_Click(sender As Object, e As EventArgs) Handles BtnReset.Click
         Reset()
     End Sub
